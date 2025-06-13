@@ -130,7 +130,7 @@ fi
 if [[ "$inject" == "etaHEN" ]]; 
 then
 mkdir Payloads
-wget https://github.com/etaHEN/etaHEN/releases/latest/download/etaHEN.bin -P Payloads
+wget -O Payloads/etaHEN.bin $(curl -s https://api.github.com/repos/etaHEN/etaHEN/releases/latest | jq -r '.assets[].browser_download_url')
 cat >> run.sh <<- "EOF"
 socat FILE:Payloads/etaHEN.bin TCP:$(cat ip.txt):9021
 EOF

@@ -7,8 +7,7 @@ ARG inject
 ENV PYTHONUNBUFFERED=1
 
 RUN apk update
-RUN apk add bash git wget socat
-RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
+RUN apk add --no-cache bash git wget curl jq socat python3 && ln -sf python3 /usr/bin/python
 
 WORKDIR /opt
 RUN wget https://raw.githubusercontent.com/BenNoxXD/automatic-lua-loader/refs/heads/main/install.sh 

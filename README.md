@@ -50,6 +50,7 @@ And here is an example install command:
 
 ```sh
 sudo apt update
+sudo apt install -y bash git wget curl jq socat python3
 wget https://raw.githubusercontent.com/BenNoxXD/automatic-lua-loader/refs/heads/main/install.sh
 sudo chmod +x install.sh
 sudo ./install.sh -ps5_ip=10.0.0.2 -killgame=on -continue=ping -inject=etaHEN
@@ -57,7 +58,15 @@ sudo ./install.sh -ps5_ip=10.0.0.2 -killgame=on -continue=ping -inject=etaHEN
 
 ### Usage
 If you are using a Raspberry Pi, it's recommended to connect it to one of the PS5's USB power ports. Now the Raspberry Pi will automatically turn on whenever your PS5 boots up. 
-<br><br>
+<br>
+
+### Uninstall:
+```sh
+systemctl stop lualoader
+systemctl disable lualoader
+rm /etc/systemd/system/lualoader.service
+rm -r /opt/automatic-lua-loader
+```
 
 ## Docker installation
 Make sure you have [Docker](https://docs.docker.com/engine/install/) installed. You can check it like this: `docker -v`.
